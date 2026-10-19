@@ -28,17 +28,23 @@ import Footer from '../../components/Footer.astro';
           Eligible under tax exemption. FCRA valid registration renewed and it is valid from
           01.01.2022 to 31.12.2026.
         </p>
-        <p>
-          The society also registered under the Income Tax Exemption Act, 1961 vide
-          12A FileNo.DIT(E)/HYD/12A/60(12)/10-11, Dated.29.06.2011. All the donations made to
-          Glorious Women Empowerment is tax deductible as per the
-          F.No.DIT(E)/HYD/80G/9(07)/11-12, Dated.21.12.2011.
-        </p>
-        <p>Permanent Account Number (PAN): AABTG0113D</p>
-        <p>
-          GWE NGO registered with Ministry of Home Affairs under Foreign Contribution Regulation Act
-          (FCRA), 1976, FCRA registration number: 010270207, dated.22.02.2008.
-        </p>
+        <div class="credential-box">
+          <ul>
+            <li>
+              The society also registered under the Income Tax Exemption Act, 1961 vide
+              12A FileNo.DIT(E)/HYD/12A/60(12)/10-11, Dated.29.06.2011.
+            </li>
+            <li>
+              All the donations made to Glorious Women Empowerment is tax deductible as per the
+              F.No.DIT(E)/HYD/80G/9(07)/11-12, Dated.21.12.2011.
+            </li>
+            <li>Permanent Account Number (PAN): AABTG0113D</li>
+            <li>
+              GWE NGO registered with Ministry of Home Affairs under Foreign Contribution Regulation
+              Act (FCRA), 1976, FCRA registration number: 010270207, dated.22.02.2008.
+            </li>
+          </ul>
+        </div>
         <ul>
           <li>Filing Annual Returns to the Income Tax Department, Hyderabad within the time.</li>
           <li>Filing of Renewal of the Society with the District Registrar, Kurnool and to get the Renewal Certificate.</li>
@@ -53,3 +59,24 @@ import Footer from '../../components/Footer.astro';
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .credential-box {
+    background: #f1f3f5;
+    border-radius: 16px;
+    padding: var(--space-4);
+    margin: var(--space-4) 0;
+  }
+
+  .credential-box ul {
+    padding-left: 1.4rem;
+    margin: 0;
+  }
+
+  .credential-box li {
+    color: #1a3c6e;
+    font-size: calc(1rem + 2px);
+    line-height: 1.6;
+    margin-bottom: var(--space-2);
+  }
+</style>
