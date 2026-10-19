@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { IMAGES } from '../../data/site';
+
+const programs = [
+  {
+    title: 'Nutritious Meal',
+    href: '/elders/nutritious-meal',
+    text: 'So that they do not sleep empty stomach.',
+  },
+  {
+    title: 'Grocery Support',
+    href: '/elders/groceries-support',
+    text: 'So that they can keep themselves clean and away from diseases.',
+  },
+  {
+    title: 'Blankets',
+    href: '/elders/distribution-of-blankets',
+    text: 'To cover themselves in cold weather.',
+  },
+];
+---
+
+<Layout
+  title="Elders — GWE NGO INDIA"
+  description="GWE NGO India supports senior citizens with nutritious meals, grocery support and blankets, so elders live the rest of their lives happily and healthily."
+>
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Elders</h1>
+        <p>They do not want your money — they want your support, time and love.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <img src={IMAGES.elders} alt="Old age home — donate for elders in Kurnool" loading="lazy" />
+        <p>
+          It is very true to say that old age people need the same amount of love, care, time and
+          support as children do. Both are in an age where they require someone to be on their side
+          but usually, children do get that love and support whereas old aged people do not. One
+          should understand that they do not want your money, but your support, time and love.
+        </p>
+        <p>
+          GWE NGO India is trying to make some efforts in order to help them live the rest of their
+          lives happily and in a healthy manner. We think that at this age, the most important
+          things that they need are —
+        </p>
+        <ul>
+          <li>Nutritious meal so that they do not sleep empty stomach</li>
+          <li>Grocery support so that they can keep themselves clean and away from diseases</li>
+          <li>Blankets to cover themselves in cold weather</li>
+        </ul>
+        <p>
+          Keeping the above things in mind we have come up with individual programs so that we can
+          do as much as possible for our elders.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Our Programs for Elders</h2>
+        <div class="grid program-grid">
+          {
+            programs.map((p) => (
+              <a href={p.href} class="card program-card">
+                <div class="card__body">
+                  <h3>{p.title}</h3>
+                  <p>{p.text}</p>
+                  <span class="program-card__link">Learn more →</span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        <a class="btn btn--secondary" href="/donate">Donate for Elders</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .program-grid {
+    margin-bottom: var(--space-3);
+  }
+
+  .program-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .program-card__link {
+    color: var(--color-primary-600);
+    font-weight: 600;
+  }
+</style>

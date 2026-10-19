@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { IMAGES } from '../../data/site';
+
+const programs = [
+  {
+    title: 'Education Material',
+    href: '/children/education-material',
+    text: 'Notebooks, pencils, geometric boxes, erasers, writing pads and uniforms — 120 school children covered so far.',
+  },
+  {
+    title: 'Sponsorship for Children',
+    href: '/children/sponsorship',
+    text: 'Sponsor a child so they can study, build a career and be the future of our country.',
+  },
+  {
+    title: 'School Uniforms',
+    href: '/children/school-uniforms',
+    text: 'Uniforms so children can follow school rules and keep themselves clean and healthy.',
+  },
+  {
+    title: 'Day Care',
+    href: '/children/day-care',
+    text: 'Day care for poor children from working families who do not get the care they deserve.',
+  },
+];
+---
+
+<Layout
+  title="Children — GWE NGO INDIA"
+  description="GWE NGO India supports children with education material, sponsorship, school uniforms and day care for poor children from working families."
+>
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Children</h1>
+        <p>Every child deserves education, no matter what.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <img src={IMAGES.children} alt="Sponsor orphan and homeless children — education and charity" loading="lazy" />
+        <p>
+          Children are the most innocent souls on earth, neither do they harm others, nor do they
+          differentiate between people. All they know is how to enjoy life and be happy. How can we
+          leave these innocent souls in grief? We all should come together to help them grow in
+          their lives, build a career, be the future of our country. Therefore, GWE NGO India has
+          come up with few programs which in some way can help them —
+        </p>
+        <ul>
+          <li>Education material for children so that they can also enjoy studies like others.</li>
+          <li>Sponsorship for children to help them study and get a better career.</li>
+          <li>School uniforms so that they can follow the rules and regulations of the school and at the same time can keep themselves clean and healthy.</li>
+          <li>Day Care for poor children from working families who do not get the care they deserve. These programs have been designed to help these sweet little children grow and reach the heights of success.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Our Programs for Children</h2>
+        <div class="grid program-grid">
+          {
+            programs.map((p) => (
+              <a href={p.href} class="card program-card">
+                <div class="card__body">
+                  <h3>{p.title}</h3>
+                  <p>{p.text}</p>
+                  <span class="program-card__link">Learn more →</span>
+                </div>
+              </a>
+            ))
+          }
+        </div>
+        <a class="btn btn--secondary" href="/donate">Donate for Children</a>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .program-grid {
+    margin-bottom: var(--space-3);
+  }
+
+  .program-card {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .program-card__link {
+    color: var(--color-primary-600);
+    font-weight: 600;
+  }
+</style>

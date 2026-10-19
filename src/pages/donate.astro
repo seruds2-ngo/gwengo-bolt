@@ -1,0 +1,247 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const amounts = [500, 1000, 2500, 5000, 10000];
+---
+
+<Layout
+  title="Donate Now — GWE NGO INDIA"
+  description="Donate to Glorious Women Empowerment NGO India. All donations are tax deductible under 80G Income Tax Exemption Act."
+>
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Donate Now</h1>
+        <p>There's nothing more valuable than your support and love.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container donate-grid">
+        <div>
+          <h2>Your donation changes lives</h2>
+          <p>
+            All donations to Glorious Women Empowerment are tax deductible under 80G Income Tax
+            Exemption Act. You will get a tax receipt and the purpose of donation utilization after
+            we receive your donation, and you will receive feedback on the utilization of the amount
+            for the specific purpose.
+          </p>
+          <ul class="donate-points">
+            <li>₹500 — a nutritious meal kit for an elder</li>
+            <li>₹2,500 — an education kit for a girl child</li>
+            <li>₹10,000 — vocational skill training for a woman</li>
+          </ul>
+          <div class="payment-note">
+            <h3>Other ways to give</h3>
+            <p>
+              You can also donate with credit card, debit card, net banking or PayPal through our
+              secure online payment gateway. For offline donations and CSR partnerships, please
+              reach out to us directly.
+            </p>
+          </div>
+        </div>
+
+        <form
+          class="donate-form"
+          onsubmit="event.preventDefault(); alert('Thank you for your generous support! Our team will contact you with payment details.');"
+        >
+          <h2>Make a Donation</h2>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="first-name">First Name</label>
+              <input id="first-name" name="firstName" type="text" required />
+            </div>
+            <div class="form-field">
+              <label for="last-name">Last Name</label>
+              <input id="last-name" name="lastName" type="text" required />
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email Address</label>
+            <input id="email" name="email" type="email" required />
+          </div>
+          <fieldset class="amounts">
+            <legend>Donation Amount</legend>
+            <div class="amount-options">
+              {
+                amounts.map((a) => (
+                  <label class="amount-chip">
+                    <input type="radio" name="amount" value={a} checked={a === 2500} />
+                    <span>₹{a.toLocaleString('en-IN')}</span>
+                  </label>
+                ))
+              }
+            </div>
+          </fieldset>
+          <div class="donate-total">
+            <span>Donation Total:</span>
+            <strong id="donate-total">₹2,500</strong>
+          </div>
+          <button class="btn btn--primary btn--full" type="submit">Donate Now</button>
+          <p class="donate-safe">Secure donation · 80G tax receipt provided</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .donate-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: var(--space-6);
+    align-items: start;
+  }
+
+  .donate-points {
+    padding-left: 1.2rem;
+  }
+
+  .donate-points li {
+    margin-bottom: var(--space-1);
+  }
+
+  .payment-note {
+    background: var(--color-primary-50);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    margin-top: var(--space-3);
+  }
+
+  .donate-form {
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-4);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2);
+  }
+
+  .form-field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-2);
+  }
+
+  .form-field label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
+
+  .form-field input {
+    padding: 12px 14px;
+    border: 1px solid var(--neutral-200);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s ease;
+  }
+
+  .form-field input:focus {
+    outline: none;
+    border-color: var(--color-primary-500);
+  }
+
+  .amounts {
+    border: none;
+    margin: 0 0 var(--space-2);
+    padding: 0;
+  }
+
+  .amounts legend {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+  }
+
+  .amount-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .amount-chip {
+    cursor: pointer;
+  }
+
+  .amount-chip input {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .amount-chip span {
+    display: inline-block;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 2px solid var(--neutral-200);
+    font-weight: 600;
+    transition:
+      border-color 0.2s ease,
+      background-color 0.2s ease,
+      color 0.2s ease;
+  }
+
+  .amount-chip input:checked + span {
+    border-color: var(--color-primary-500);
+    background: var(--color-primary-500);
+    color: #fff;
+  }
+
+  .amount-chip input:focus-visible + span {
+    outline: 2px solid var(--color-primary-700);
+    outline-offset: 2px;
+  }
+
+  .donate-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-2);
+    background: var(--color-primary-50);
+    border-radius: 8px;
+    margin-bottom: var(--space-2);
+    font-size: 1.05rem;
+  }
+
+  .donate-total strong {
+    font-size: 1.3rem;
+    color: var(--color-primary-700);
+  }
+
+  .btn--full {
+    width: 100%;
+  }
+
+  .donate-safe {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--neutral-700);
+    margin: var(--space-2) 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .donate-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const form = document.querySelector('.donate-form');
+  const totalEl = document.getElementById('donate-total');
+  form?.addEventListener('change', (e) => {
+    const target = e.target as HTMLInputElement;
+    if (target?.name === 'amount' && totalEl) {
+      totalEl.textContent = `₹${Number(target.value).toLocaleString('en-IN')}`;
+    }
+  });
+</script>

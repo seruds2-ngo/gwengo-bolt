@@ -1,0 +1,155 @@
+---
+import { SITE, IMAGES } from '../data/site';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <h3>{SITE.name}</h3>
+      <p>
+        Glorious Women Empowerment — registered in 1998 under the Societies Registration Act, XXI of
+        1860, vide Regd.No. 414/1998. Working in Kurnool and Kadapa Districts, Andhra Pradesh.
+      </p>
+    </div>
+    <div>
+      <h3>About Us</h3>
+      <ul>
+        <li><a href="/about-us">Our Story</a></li>
+        <li><a href="/about-us/vision">Our Vision</a></li>
+        <li><a href="/about-us/mission">Our Mission</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Support Us</h3>
+      <ul>
+        <li><a href="/women">Support for Women</a></li>
+        <li><a href="/children">Support for Girl Child</a></li>
+        <li><a href="/elders">Support for Elders</a></li>
+        <li><a href="/donate">Donate Now</a></li>
+        <li><a href="/contact-us">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="donate-col">
+      <h3>Donate to {SITE.name}</h3>
+      <img
+        src={IMAGES.qr}
+        alt="UPI QR code to donate to Glorious Women Empowerment"
+        width="200"
+        height="200"
+      />
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="footer-bottom__top">
+      <p>
+        © {year} GWE NGO India<br />
+        All Rights Reserved.<br />
+        NITI AAYOG Unique Id: AP/2013/0068072
+      </p>
+    </div>
+    <ul class="footer-bottom__menu">
+      <li><a href="/privacy-policy">Privacy Policy</a></li>
+      <li><a href="/refund-cancellation-policy">Refund &amp; Cancellation Policy</a></li>
+      <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+      <li><a href="/disclaimer">Disclaimer</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--neutral-900);
+    color: #d4d4d4;
+    padding: var(--space-6) 0 0;
+    margin-top: auto;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.4fr;
+    gap: var(--space-4);
+    padding-bottom: var(--space-4);
+  }
+
+  .site-footer h3 {
+    color: #fff;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer li {
+    margin-bottom: 8px;
+  }
+
+  .site-footer a {
+    color: #d4d4d4;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .site-footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+
+  .donate-col img {
+    width: 200px;
+    height: 200px;
+    border-radius: var(--radius);
+    background: #fff;
+    padding: 6px;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid var(--neutral-800);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    margin: 0 0 var(--space-2);
+    font-size: 0.85rem;
+    color: #a3a3a3;
+  }
+
+  .footer-bottom__menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px var(--space-3);
+    font-size: 0.85rem;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  @media (max-width: 860px) {
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

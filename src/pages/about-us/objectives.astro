@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const objectives = [
+  'Establish and run Creche Centres for children and Old age homes to promote welfare of senior citizens, elderly people, Children\'s Orphanage for Orphan and street children',
+  'Create awareness & implement NGO projects on Medical Health, Adult education, primary education, vocational skills',
+  'Achieve literacy and to work for promotion of education among children and women',
+  'Empower & organize the differentially able persons with tri-cycles, vocational skills trainings to enable them to lead dignified life',
+  'Organize & conduct sensitization camps on sanitation, personal hygiene, health, education, female foeticide',
+  'Create sensitization camps on HIV/AIDS and other diseases for women, school students, truck drivers & to work for preventive measures including promote blood donations in colleges and corporate',
+  'Seek donations from corporate social responsibility, National and International organizations for social service activities and to organize workshops/programs in tribal areas for women and youth',
+  'Carryout and implement programs for the integrated development of the society through various projects in the fields of education, health, agriculture, livelihoods',
+  'Make the rural destitute women self-reliant by organizing promotion of SHGs — Self Help Groups for their income generating activities',
+  'Establish care and support for Orphans & Old age people',
+  'Work towards elimination of practice of child labour in shops & establishments and to take appropriate steps for child labour rehabilitation',
+  'Implement & coordinate various ngo projects relating to welfare of people belonging to Dalits including SCs, STs and OBCs, Minority groups',
+  'Implement & coordinate various activities aimed towards development & maintenance of environment protection, plantation of medicinal plants and all other NGO projects for dealing bio-diversity conservation, climate change',
+  'Work towards maintaining communal harmony',
+  'Run skills training centre in remote rural areas of Kurnool District, to uplift the educational & economic standards of the deprived sections of society, and to eliminate their prevailing child marriage, illiteracy, dowry system',
+  'Work for the development of sustainable agriculture and ecology in rural areas',
+  'Carry out child development projects for the children of working women and to provide opportunities to access nutrition and education',
+  'Implement various voluntary organization projects for the development of rural livelihoods and to provide market linkages',
+  'Work for the flood relief activities during disasters and natural calamities',
+  'Awake & empower women, children and other vulnerable sections',
+  'Promote child rights, women rights and human rights',
+];
+---
+
+<Layout
+  title="Objectives — GWE NGO INDIA"
+  description="The aims and objectives of Glorious Women Empowerment NGO."
+>
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Objectives</h1>
+        <p>The aims and objectives of Glorious Women Empowerment are to:</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose">
+        <ul>
+          {objectives.map((o) => <li>{o}</li>)}
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

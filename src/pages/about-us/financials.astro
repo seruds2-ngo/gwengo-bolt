@@ -1,0 +1,180 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+interface Row {
+  label: string;
+  exp: string;
+  inc: string;
+  incAmt: string;
+}
+
+interface Year {
+  title: string;
+  rows: Row[];
+  total: string;
+}
+
+const years: Year[] = [
+  {
+    title: 'Income and Expenditure account for the financial year 2015–2016 (AY 2016–2017)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '212,300', inc: 'Donation from International Organization', incAmt: '192,358' },
+      { label: 'Depreciation', exp: '7,632', inc: 'Govt. of India', incAmt: '0' },
+      { label: 'Administrative Expenses', exp: '129,498', inc: 'Local Donations', incAmt: '158,000' },
+      { label: 'Excess of Income over Expenditure', exp: '1,063', inc: 'Bank Interest', incAmt: '135' },
+    ],
+    total: '350,493',
+  },
+  {
+    title: 'Income and Expenditure account for the financial year 2014–2015 (AY 2015–2016)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '519,500', inc: 'Donation from International Organization', incAmt: '194,109' },
+      { label: 'Depreciation', exp: '8,885', inc: 'Govt. of India', incAmt: '300,000' },
+      { label: 'Administrative Expenses', exp: '102,441', inc: 'Local Donations', incAmt: '223,500' },
+      { label: 'Excess of Income over Expenditure', exp: '86,912', inc: 'Bank Interest', incAmt: '129' },
+    ],
+    total: '717,738',
+  },
+  {
+    title: 'Income and Expenditure account for the financial year 2013–2014 (AY 2014–2015)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '201,300', inc: 'Donation from International Organization', incAmt: '100,000' },
+      { label: 'Depreciation', exp: '7,174', inc: 'Govt. of India', incAmt: '10,000' },
+      { label: 'Administrative Expenses', exp: '101,300', inc: 'Local Donations', incAmt: '199,035' },
+      { label: 'Excess of Income over Expenditure', exp: '1,175', inc: 'Bank Interest', incAmt: '1,914' },
+    ],
+    total: '310,949',
+  },
+  {
+    title: 'Income and Expenditure account for the financial year 2012–2013 (AY 2013–2014)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '251,740', inc: 'Donation from International Organization', incAmt: '102,358' },
+      { label: 'Depreciation', exp: '7,971', inc: 'Govt. of India', incAmt: '8,000' },
+      { label: 'Administrative Expenses', exp: '95,800', inc: 'Local Donations', incAmt: '244,620' },
+      { label: 'Excess of Income over Expenditure', exp: '2,015', inc: 'Bank Interest', incAmt: '2,548' },
+    ],
+    total: '357,526',
+  },
+  {
+    title: 'Income and Expenditure account for the year 2011–2012 (AY 2012–2013)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '367,000', inc: 'Donation from International Organization', incAmt: '104,833' },
+      { label: 'Depreciation', exp: '19,466', inc: 'Govt. of India', incAmt: '7,000' },
+      { label: 'Administrative Expenses', exp: '73,100', inc: 'Local Donations', incAmt: '350,500' },
+      { label: 'Excess of Income over Expenditure', exp: '3,149', inc: 'Bank Interest', incAmt: '382' },
+    ],
+    total: '462,715',
+  },
+  {
+    title: 'Income and Expenditure account for the year 2010–2011 (AY 2011–2012)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '298,433', inc: 'Donation from International Organization', incAmt: '126,125' },
+      { label: 'Depreciation', exp: '14,857', inc: 'Govt. of India', incAmt: '7,344' },
+      { label: 'Administrative Expenses', exp: '96,600', inc: 'Local Donations', incAmt: '280,771' },
+      { label: 'Excess of Income over Expenditure', exp: '4,728', inc: 'Bank Interest', incAmt: '378' },
+    ],
+    total: '414,618',
+  },
+  {
+    title: 'Income and Expenditure account for the year 2009–2010 (AY 2010–2011)',
+    rows: [
+      { label: 'Program Expenses / NGO activities', exp: '474,167', inc: 'Donation from International Organization', incAmt: '129,660' },
+      { label: 'Administrative Expenses', exp: '53,800', inc: 'Govt. of India', incAmt: '6,600' },
+      { label: '', exp: '', inc: 'Local Donations & Member Contributions', incAmt: '348,600' },
+      { label: '', exp: '', inc: 'Bank Interest', incAmt: '465' },
+    ],
+    total: '414,618',
+  },
+];
+---
+
+<Layout
+  title="Financials — GWE NGO INDIA"
+  description="Income and Expenditure accounts of Glorious Women Empowerment NGO from 2009-2010 to 2015-2016."
+>
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Financials</h1>
+        <p>Accountable and transparent — our income and expenditure year by year.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <p class="prose">
+          We are able to achieve our ongoing projects with the donations from local, national and
+          international organizations. The financials of GWE NGO is as follows.
+        </p>
+        {
+          years.map((y) => (
+            <section class="year-block">
+              <h3>{y.title}</h3>
+              <table class="data">
+                <thead>
+                  <tr>
+                    <th>Expenditure</th>
+                    <th>Amount in INR</th>
+                    <th>Income</th>
+                    <th>Amount in INR</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {y.rows.map((r) => (
+                    <tr>
+                      <td>{r.label}</td>
+                      <td>{r.exp}</td>
+                      <td>{r.inc}</td>
+                      <td class="num">{r.incAmt}</td>
+                    </tr>
+                  ))}
+                  {[1].map(() => (
+                    <tr class="total-row">
+                      <td><strong>Total</strong></td>
+                      <td><strong>{y.total}</strong></td>
+                      <td><strong>Total</strong></td>
+                      <td><strong>{y.total}</strong></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          ))
+        }
+        <div class="prose">
+          <p>
+            The audited financial accounts are extracted from the receipts, bills and payment
+            vouchers. We have appointed the Auditor to audit regularly our NGO projects in Kurnool.
+          </p>
+          <p>
+            <strong>Address of the Chartered Accountant:</strong> Mr. K.R. Singh, Chartered
+            Accountant, M.No.29840 – Govt. of India, D.No.41-473N, Opp. District Court, Kurnool
+            – 518001, AP.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .year-block {
+    margin-top: var(--space-4);
+  }
+
+  .year-block h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary-700);
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .total-row td {
+    background: var(--color-primary-50);
+  }
+</style>

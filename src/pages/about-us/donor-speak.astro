@@ -1,0 +1,85 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const testimonials = [
+  {
+    quote:
+      '"….. I felt proud to be associated with a noble cause of helping needy destitute elderly people of our country India. Of course I know that my contribution is significantly very small. However, I am very happy at least I could do this much with god\'s blessings. May god inspire every able citizen to come forward to contribute financially to this genuine GWE organization. Thank you once again for giving me this opportunity to associate with GWE."',
+    name: 'Gangopadhyaya Chatterjee',
+    role: 'WASHINGTON D.C., USA',
+  },
+  {
+    quote:
+      '"though my financial contribution is very little compared to the amount of work being done, but I am very glad and to some extent quiet content that I am trying to fulfill my dream, which has been with me since I started my college. I am very much grateful to GWE for giving me opportunity to contribute for the needy beneficiaries. I am proud being an Indian and more importantly a proud human being."',
+    name: 'Shwetha Roy',
+    role: 'SOFTWARE ENGINEER, UNITED KINGDOM',
+  },
+  {
+    quote:
+      '"From the beginning it was part of life to keep aside some amount from the income for donating. It is my pleasure to give for street children through Glorious Women Empowerment."',
+    name: 'Srinivas Chowdhary',
+    role: 'PROJECT LEADER, INFOSYS',
+  },
+];
+---
+
+<Layout title="Donor Speak — GWE NGO INDIA">
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Donor Speak</h1>
+        <p>Voices from our community of supporters.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="grid">
+          {
+            testimonials.map((t) => (
+              <figure class="testimonial">
+                <blockquote>{t.quote}</blockquote>
+                <figcaption>
+                  <strong>{t.name}</strong>
+                  <span>{t.role}</span>
+                </figcaption>
+              </figure>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .testimonial {
+    margin: 0;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    padding: var(--space-3);
+    border-top: 4px solid var(--color-secondary-500);
+  }
+
+  .testimonial blockquote {
+    margin: 0 0 var(--space-2);
+    font-style: italic;
+    color: var(--neutral-700);
+  }
+
+  .testimonial figcaption strong {
+    display: block;
+    color: var(--neutral-900);
+  }
+
+  .testimonial figcaption span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-primary-600);
+  }
+</style>

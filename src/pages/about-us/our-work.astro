@@ -1,0 +1,93 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const activities = [
+  'Health education program for Govt. High School children and Welfare Hostels Children',
+  'Crèche centers for kids of working mothers',
+  'NEAC — National Environmental Awareness Campaigns',
+  'Distribution of fruits, Milk, bread etc to Patients',
+  'Distribution of groceries to old age persons',
+  'Vocational/Skill Trainings in Zari works & Tailoring',
+  'Legal awareness and Legal Literacy camps',
+  'HIV/AIDS Awareness camps for the students, women, truck drivers',
+  'Medical Health camps',
+  'Distribution of education material to adolescent girls',
+  'Child Rights camps',
+  'Reproductive health education to women & girls',
+  'Soft toys vocational skills training program',
+  'Naturopathy awareness program',
+  'Flood relief activities',
+  'Workshop on rights & entitlements of women & girls',
+  'Distribution of uniforms, clothes to the girl children',
+  'Distribution of cloths to the old age, destitute persons',
+  'Skill development in Zari & Zardosi, Tailoring & Embroidery',
+];
+
+const workWith = [
+  'Child labour, Street and Orphan children',
+  'Widows, Dalits and Destitute',
+  'Adolescent Girls and Deprived Women',
+  'Disabled and Old age persons',
+  'Youth',
+];
+
+const futurePlans = [
+  'Vocational/Skill Training Programs in different trades for Adolescents, Youth and Women of Deprived sections',
+  'Sensitization and Education to Children, Adolescents, Youth and Women on Health, Rights, Entitlements, Environment, Legal & Social issues, etc.',
+  'Distribution of Educational Material to poor students',
+  'Distribution of personal belongings to old age people',
+  'Mid day Meal Program to deprived old people',
+  'Distribution of assets to disadvantaged to establish self employment units for sustainable livelihoods',
+  'Rights Campaigns — Women Rights, Child Rights, etc.',
+];
+---
+
+<Layout
+  title="Our Work — GWE NGO INDIA"
+  description="Activities, projects and future plans of Glorious Women Empowerment NGO."
+>
+  <Header />
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>Our Work</h1>
+        <p>Need-based programs identified together with the community we serve.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container prose">
+        <p>
+          The GWE nonprofit organization mainly concentrates on the basic necessities of the
+          destitute women, children nutrition, elderly people midday meal and basic health care
+          activities to the poor and needy who are not able to purchase the medicines and not afford
+          to pay the doctor's fee. GWE NGO identifies need based programs in its target area by
+          consulting with target group, community elders in the slums of urban areas and in the
+          remote rural villages. The beneficiaries are main stake holders in the decision making for
+          implementation of the NGO Projects.
+        </p>
+        <h3>Activities / Projects of GWE NGO:</h3>
+        <ul>
+          {activities.map((a) => <li>{a}</li>)}
+        </ul>
+        <h3>Work With Us</h3>
+        <ul>
+          <li>For donating money &amp; in-kind</li>
+          <li>For raising resources / funds</li>
+          <li>For providing technical guidance</li>
+          <li>For Volunteer with our NGO projects</li>
+        </ul>
+        <h3>We work with:</h3>
+        <ul>
+          {workWith.map((w) => <li>{w}</li>)}
+        </ul>
+        <h3>Our Future Plans / Activities:</h3>
+        <ul>
+          {futurePlans.map((f) => <li>{f}</li>)}
+        </ul>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,125 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { IMAGES } from '../../data/site';
+---
+
+<Layout
+  title="About Us — GWE NGO INDIA"
+  description="Glorious Women Empowerment (GWE) NGO India — registered in 1998, working for the empowerment of women and development of children in Kurnool and Kadapa Districts, Andhra Pradesh."
+>
+  <Header />
+
+  <main id="main">
+    <section class="page-hero">
+      <div class="container">
+        <h1>About Us</h1>
+        <p>Seven women. One passion for social service. Serving communities since 1998.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container prose">
+        <img src={IMAGES.about} alt="About Glorious Women Empowerment" loading="lazy" />
+        <p>
+          In the year 1998, we, seven women, having passion in social service formed an organization
+          by name "Glorious Women Empowerment". We are all women members and belong to backward and
+          downtrodden communities. Our society was registered and started activities for the
+          upliftment of the quality of life of the downtrodden communities particularly women and
+          children. We focus women and children but do activities to other vulnerable,
+          disadvantaged, deprived sections, who are poor and in need of help and assistance. We have
+          compassion towards the problems of the poor and would like to do something for their
+          empowerment. We understood that lack of knowledge and awareness is the main reason for all
+          the problems of human beings. We felt the fruits of development are not reaching to the
+          downtrodden communities.
+        </p>
+        <p>
+          We would like to take up social economic, health, educational, agricultural, rural
+          development and cultural activities for transformation of the society. That is why, we
+          have established this society. We have service minded EC Members, dedicated staff and
+          committed volunteers. We have interest, will and pleasure to take up welfare and
+          developmental activities for the needy sections of the society. GWE NGO in Andhra Pradesh
+          is committed to the empowerment of women and development of Children. Presently it is
+          working in Kurnool and Kadapa Districts, in the coming years would like to expand its
+          activities to the Ananthapur, Chittoor Districts of Andhra Pradesh. Our main of
+          streamlining welfare services for the disadvantaged sections of society.
+        </p>
+        <p>
+          Since its inception the GWE NGO is a major catalyst of social empowerment, it provides
+          opportunities to women to acquire education and skills and to overcome the obstacles they
+          face in their family and community. Glorious Women Empowerment is achieving its targets by
+          rising online and offline donations through individual philanthropist, corporate social
+          responsibility from India and abroad. You can also make online donations to our GWE NGO
+          India through Paypal credit card and secure online payment gateway. All donations to
+          Glorious Women Empowerment is tax deductible under 80G Income Tax Exemption Act. You will
+          get a tax receipt and purpose of donation utilization after receiving money from you. You
+          will receive feedback utilization of the amount for specific purpose.
+        </p>
+        <p>
+          So please donate generously to our Non Government Organization with your credit card,
+          debit card and net banking with secure online payment gateway. Glorious Women Empowerment
+          NGO is registered in the year 1998 under the Societies Registration Act, XXI of 1860,
+          vide Regd.No. 414/1998.
+        </p>
+        <a class="btn btn--primary" href="/donate">Donate Now</a>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Compliance / Credentials and Legal Certificates of the NGO in Andhra Pradesh</h2>
+        <p>
+          As part of Good Governance, the GWE NGO India is maintaining following standards and
+          filing the returns as per the societies act &amp; credibility alliance to maintain as good
+          and credible NGO among several Best Indian NGOs. GWE NGO is growing nonprofit organization
+          in Andhra Pradesh, which is working for the economically disadvantaged people to eradicate
+          the poverty.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>The Executive Committee Members for the year 2022–2023</h2>
+        <table class="data">
+          <thead>
+            <tr><th>S.No.</th><th>Name</th><th>Designation</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>Ms. R.G. Deepika</td><td>President</td></tr>
+            <tr><td>02</td><td>Ms. B. Kumari</td><td>Vice President</td></tr>
+            <tr><td>03</td><td>Ms. M.D. Muneswaramma</td><td>Secretary</td></tr>
+            <tr><td>04</td><td>Ms. P. Sumalatha</td><td>Joint Secretary</td></tr>
+            <tr><td>05</td><td>Ms. B. Mounika</td><td>Treasurer</td></tr>
+            <tr><td>06</td><td>Ms. M. Mani</td><td>Executive Member</td></tr>
+            <tr><td>07</td><td>Ms. G. Gouramma</td><td>Executive Member</td></tr>
+          </tbody>
+        </table>
+        <p>
+          The executive committee members are belongs to dalits, working in different vocations for
+          their family sustenance and working for the needy communities irrespective of caste, creed
+          and religion.
+        </p>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <h2>Staff of the Organization</h2>
+        <table class="data">
+          <thead>
+            <tr><th>S.No.</th><th>Name of the Staff</th><th>Designation</th><th>Remuneration p.a.</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>01</td><td>Ms. Jayalakshmi</td><td>Project Coordinator</td><td>Rs. 24,000</td></tr>
+            <tr><td>02</td><td>Ms. Rathamma</td><td>Community Organizer</td><td>Rs. 24,000</td></tr>
+          </tbody>
+        </table>
+        <p>No. of paid volunteers: Nil &nbsp;·&nbsp; No. of un-paid volunteers: 17</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
