@@ -53,6 +53,7 @@ export const NAV = [
       { label: 'Distribution of Blankets', href: '/elders/distribution-of-blankets' },
     ],
   },
+  { label: 'Contact Us', href: '/contact-us' },
   { label: 'Donate', href: '/donate', cta: true },
 ];
 
