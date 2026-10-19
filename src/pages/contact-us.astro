@@ -27,19 +27,30 @@ import Footer from '../components/Footer.astro';
           </p>
           <p><strong>Location</strong> — Kurnool, Andhra Pradesh</p>
           <p>
+            <strong>Phone</strong> — <a href="tel:+917665119171">+91 76651 19171</a>
+          </p>
+          <p>
             <strong>E-mail</strong> —
             <a href="mailto:mail2gwe@gmail.com">mail2gwe@gmail.com</a>
           </p>
           <div class="socials">
             <h3>Follow Us</h3>
             <ul>
-              <li><a href="https://www.facebook.com/" rel="noopener">Facebook</a></li>
-              <li><a href="https://twitter.com/" rel="noopener">Twitter</a></li>
-              <li><a href="https://www.youtube.com/" rel="noopener">Youtube</a></li>
-              <li><a href="https://www.linkedin.com/" rel="noopener">Linkedin</a></li>
+              <li><a href="https://www.facebook.com/GloriousWomenEmpowerment" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://twitter.com/gwengoindia" target="_blank" rel="noopener">Twitter</a></li>
+              <li><a href="https://www.youtube.com/channel/UCZvFzTGWBa9fMT0xAvu08lA" target="_blank" rel="noopener">Youtube</a></li>
+              <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener">Linkedin</a></li>
             </ul>
           </div>
         </div>
+
+        <iframe
+          title="GWE NGO India location — Kurnool, Andhra Pradesh"
+          class="contact-map"
+          src="https://www.google.com/maps?q=Chenna%20Keshavaswamy%20Temple,%20Kurnool,%20Andhra%20Pradesh%20518002&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
 
         <form
           class="contact-form"
@@ -80,6 +91,14 @@ import Footer from '../components/Footer.astro';
     grid-template-columns: 1fr 1.2fr;
     gap: var(--space-6);
     align-items: start;
+  }
+
+  .contact-map {
+    width: 100%;
+    min-height: 320px;
+    border: 0;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
   }
 
   .contact-form {
