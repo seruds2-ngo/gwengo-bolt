@@ -69,9 +69,11 @@ const futurePlans = [
           implementation of the NGO Projects.
         </p>
         <h3>Activities / Projects of GWE NGO:</h3>
-        <ul>
-          {activities.map((a) => <li>{a}</li>)}
-        </ul>
+        <div class="activities-box">
+          <ul class="activities-list">
+            {activities.map((a) => <li>{a}</li>)}
+          </ul>
+        </div>
         <h3>Work With Us</h3>
         <ul>
           <li>For donating money &amp; in-kind</li>
@@ -92,3 +94,43 @@ const futurePlans = [
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .activities-box {
+    background: #f1f3f5;
+    border-radius: 16px;
+    padding: var(--space-4);
+    margin: var(--space-3) 0 var(--space-5);
+  }
+
+  .activities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    column-count: 2;
+    column-gap: var(--space-5);
+  }
+
+  .activities-list li {
+    break-inside: avoid;
+    padding-left: 2rem;
+    position: relative;
+    margin-bottom: var(--space-2);
+    line-height: 1.5;
+  }
+
+  .activities-list li::before {
+    content: '\261E';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.2rem;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 700px) {
+    .activities-list {
+      column-count: 1;
+    }
+  }
+</style>
