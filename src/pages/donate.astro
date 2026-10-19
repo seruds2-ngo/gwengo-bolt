@@ -43,8 +43,10 @@ import Footer from '../components/Footer.astro';
         <form class="donate-form">
           <h2 class="donate-form__title">Donate Now</h2>
           <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IyxvulburaaBAz" async></script>
-          <p class="donate-safe">Secure donation · 80G tax receipt provided</p>
         </form>
+        <p class="donate-note">
+          Donate securely through UPI, QR Code, credit / debit cards and Net banking with Razorpay.
+        </p>
       </div>
     </section>
   </main>
@@ -91,6 +93,12 @@ import Footer from '../components/Footer.astro';
     font-size: 0.85rem;
     color: var(--neutral-700);
     margin: var(--space-2) 0 0;
+  }
+
+  .donate-note {
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: var(--neutral-700);
   }
 
   @media (max-width: 900px) {

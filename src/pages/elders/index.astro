@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { IMAGES } from '../../data/site';
+import RazorpayDonate from '../../components/RazorpayDonate.astro';
 
 const programs = [
   {
@@ -78,7 +79,7 @@ const programs = [
             ))
           }
         </div>
-        <a class="btn btn--secondary" href="/donate">Donate for Elders</a>
+        <RazorpayDonate />
       </div>
     </section>
   </main>

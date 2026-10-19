@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import { IMAGES } from '../../data/site';
+import RazorpayDonate from '../../components/RazorpayDonate.astro';
 ---
 
 <Layout
@@ -62,7 +63,7 @@ import { IMAGES } from '../../data/site';
           NGO is registered in the year 1998 under the Societies Registration Act, XXI of 1860,
           vide Regd.No. 414/1998.
         </p>
-        <a class="btn btn--primary" href="/donate">Donate Now</a>
+        <RazorpayDonate />
       </div>
     </section>
 
