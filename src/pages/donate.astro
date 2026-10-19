@@ -42,9 +42,7 @@ import Footer from '../components/Footer.astro';
 
         <form class="donate-form">
           <h2 class="donate-form__title">Donate Now</h2>
-          <div class="razorpay-button">
-            <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IyxvulburaaBAz" async></script>
-          </div>
+          <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_IyxvulburaaBAz" async></script>
           <p class="donate-safe">Secure donation · 80G tax receipt provided</p>
         </form>
       </div>
@@ -86,12 +84,6 @@ import Footer from '../components/Footer.astro';
   .donate-form__title {
     color: var(--color-primary-600);
     margin-top: 0;
-  }
-
-  .razorpay-button {
-    display: flex;
-    justify-content: center;
-    padding: var(--space-2) 0;
   }
 
   .donate-safe {
