@@ -3,6 +3,9 @@ import { NAV, IMAGES, SITE } from '../data/site';
 import { AstroCurrentPath } from '../lib/paths';
 
 const path = AstroCurrentPath(Astro.url.pathname);
+
+const isActive = (href: string) =>
+  href === path || NAV.find((n) => n.href === href)?.children?.some((c) => c.href === path);
 ---
 
 <header class="site-header">
@@ -15,25 +18,47 @@ const path = AstroCurrentPath(Astro.url.pathname);
       <ul>
         {
           NAV.map((item) => (
-            <li>
+            <li class:list={['nav__item', { 'nav__item--has-children': item.children?.length }]}>
               <a
                 href={item.href}
                 class:list={[
                   'nav__link',
-                  { 'nav__link--active': item.href === path },
+                  { 'nav__link--active': isActive(item.href) && !item.cta },
                   { 'nav__link--cta': item.cta },
                 ]}
                 aria-current={item.href === path ? 'page' : undefined}
+                aria-haspopup={item.children?.length ? 'true' : undefined}
+                aria-expanded={item.children?.length ? 'false' : undefined}
               >
                 {item.label}
+                {item.children?.length && (
+                  <svg class="nav__caret" width="10" height="10" viewBox="0 0 10 10" aria-hidden="true">
+                    <path d="M1 3l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+                  </svg>
+                )}
               </a>
+              {item.children?.length && (
+                <ul class="dropdown">
+                  {item.children.map((child) => (
+                    <li>
+                      <a
+                        href={child.href}
+                        class:list={['dropdown__link', { 'dropdown__link--active': child.href === path }]}
+                        aria-current={child.href === path ? 'page' : undefined}
+                      >
+                        {child.label}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))
         }
       </ul>
     </nav>
 
-      <button class="menu-toggle" id="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
+    <button class="menu-toggle" id="menu-toggle" data-menu-toggle aria-expanded="false" aria-controls="site-nav">
       <span class="menu-toggle__bar"></span>
       <span class="menu-toggle__bar"></span>
       <span class="menu-toggle__bar"></span>
@@ -73,16 +98,25 @@ const path = AstroCurrentPath(Astro.url.pathname);
   }
 
   .nav ul {
-    display: flex;
-    align-items: center;
-    gap: 4px;
     list-style: none;
     margin: 0;
     padding: 0;
   }
 
+  .nav > ul {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .nav__item {
+    position: relative;
+  }
+
   .nav__link {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
     padding: 10px 14px;
     border-radius: 8px;
     text-decoration: none;
@@ -114,6 +148,64 @@ const path = AstroCurrentPath(Astro.url.pathname);
     color: #fff;
   }
 
+  .nav__caret {
+    transition: transform 0.2s ease;
+  }
+
+  /* Desktop dropdown */
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    min-width: 230px;
+    background: #fff;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(6px);
+    transition:
+      opacity 0.18s ease,
+      transform 0.18s ease,
+      visibility 0.18s;
+  }
+
+  .nav__item:hover .dropdown,
+  .nav__item:focus-within .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav__item:hover .nav__caret,
+  .nav__item:focus-within .nav__caret {
+    transform: rotate(180deg);
+  }
+
+  .dropdown__link {
+    display: block;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: var(--neutral-800);
+    font-size: 0.92rem;
+    transition:
+      background-color 0.15s ease,
+      color 0.15s ease;
+  }
+
+  .dropdown__link:hover {
+    background: var(--color-primary-50);
+    color: var(--color-primary-700);
+  }
+
+  .dropdown__link--active {
+    background: var(--color-primary-50);
+    color: var(--color-primary-700);
+    font-weight: 700;
+  }
+
   .menu-toggle {
     display: none;
     flex-direction: column;
@@ -139,7 +231,8 @@ const path = AstroCurrentPath(Astro.url.pathname);
     clip: rect(0 0 0 0);
   }
 
-  @media (max-width: 860px) {
+  /* Mobile: flat list with expandable groups */
+  @media (max-width: 960px) {
     .menu-toggle {
       display: flex;
     }
@@ -157,10 +250,11 @@ const path = AstroCurrentPath(Astro.url.pathname);
     }
 
     .nav.is-open {
-      max-height: 400px;
+      max-height: none;
+      overflow-y: auto;
     }
 
-    .nav ul {
+    .nav > ul {
       flex-direction: column;
       align-items: stretch;
       padding: var(--space-2);
@@ -168,8 +262,68 @@ const path = AstroCurrentPath(Astro.url.pathname);
     }
 
     .nav__link {
-      display: block;
+      display: flex;
+      justify-content: space-between;
       padding: 14px 16px;
+    }
+
+    .dropdown {
+      position: static;
+      min-width: 0;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      box-shadow: none;
+      padding: 0 0 6px 16px;
+      display: none;
+    }
+
+    .nav__item.is-expanded .dropdown {
+      display: block;
+    }
+
+    .nav__item:hover .nav__caret,
+    .nav__item:focus-within .nav__caret {
+      transform: none;
+    }
+
+    .nav__item.is-expanded .nav__caret {
+      transform: rotate(180deg);
+    }
+
+    .dropdown__link {
+      padding: 12px 16px;
+      border-left: 2px solid var(--neutral-200);
+    }
+
+    .dropdown__link--active {
+      border-left-color: var(--color-primary-500);
     }
   }
 </style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('site-nav');
+
+  if (toggle instanceof HTMLButtonElement && nav) {
+    toggle.addEventListener('click', () => {
+      const open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  // On touch/small screens, tapping a parent opens its submenu (a second tap navigates)
+  document.querySelectorAll<HTMLAnchorElement>('.nav__item--has-children > .nav__link').forEach((link) => {
+    const item = link.parentElement;
+    if (!item) return;
+    link.addEventListener('click', (e) => {
+      if (!window.matchMedia('(max-width: 960px)').matches) return;
+      if (!item.classList.contains('is-expanded')) {
+        e.preventDefault();
+        item.classList.add('is-expanded');
+        link.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

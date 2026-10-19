@@ -8,10 +8,51 @@ export const SITE = {
 
 export const NAV = [
   { label: 'Home', href: '/' },
-  { label: 'About Us', href: '/about-us' },
-  { label: 'Women', href: '/women' },
-  { label: 'Children', href: '/children' },
-  { label: 'Elders', href: '/elders' },
+  {
+    label: 'About Us',
+    href: '/about-us',
+    children: [
+      { label: 'Our Story', href: '/about-us' },
+      { label: 'Our Vision', href: '/about-us/vision' },
+      { label: 'Our Mission', href: '/about-us/mission' },
+      { label: 'Objectives', href: '/about-us/objectives' },
+      { label: 'Our Work', href: '/about-us/our-work' },
+      { label: 'Donor Speak', href: '/about-us/donor-speak' },
+      { label: 'Financials', href: '/about-us/financials' },
+      { label: 'Charitable Status', href: '/about-us/charitable-status' },
+    ],
+  },
+  {
+    label: 'Women',
+    href: '/women',
+    children: [
+      { label: 'Support for Women', href: '/women' },
+      { label: 'Women Empowerment', href: '/women/women-empowerment' },
+      { label: 'Health Education', href: '/women/health-education' },
+    ],
+  },
+  {
+    label: 'Children',
+    href: '/children',
+    children: [
+      { label: 'Support for Girl Child', href: '/children' },
+      { label: 'Education Material', href: '/children/education-material' },
+      { label: 'School Uniforms', href: '/children/school-uniforms' },
+      { label: 'Day Care', href: '/children/day-care' },
+      { label: 'Sponsorship', href: '/children/sponsorship' },
+    ],
+  },
+  {
+    label: 'Elders',
+    href: '/elders',
+    children: [
+      { label: 'Support for Elders', href: '/elders' },
+      { label: 'Nutritious Meal', href: '/elders/nutritious-meal' },
+      { label: 'Nutritious Diet', href: '/elders/nutritious-diet' },
+      { label: 'Groceries Support', href: '/elders/groceries-support' },
+      { label: 'Distribution of Blankets', href: '/elders/distribution-of-blankets' },
+    ],
+  },
   { label: 'Donate', href: '/donate', cta: true },
 ];
 
