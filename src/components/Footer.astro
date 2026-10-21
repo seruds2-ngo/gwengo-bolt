@@ -1,13 +1,11 @@
 ---
-import { SITE, IMAGES } from '../data/site';
-
-const year = new Date().getFullYear();
+import { IMAGES } from '../data/site';
 ---
 
 <footer class="site-footer">
   <div class="container footer-grid">
     <div>
-      <h3>{SITE.name}</h3>
+      <h3>GLORIOUS WOMEN EMPOWERMENT</h3>
       <p>
         Glorious Women Empowerment — registered in 1998 under the Societies Registration Act, XXI of
         1860, vide Regd.No. 414/1998. Working in Kurnool and Kadapa Districts, Andhra Pradesh.
@@ -32,7 +30,7 @@ const year = new Date().getFullYear();
       </ul>
     </div>
     <div class="donate-col">
-      <h3>Donate to {SITE.name}</h3>
+      <h3>Donate to GLORIOUS WOMEN EMPOWERMENT</h3>
       <img
         src={IMAGES.qr}
         alt="UPI QR code to donate to Glorious Women Empowerment"
@@ -43,10 +41,8 @@ const year = new Date().getFullYear();
   </div>
   <div class="container footer-bottom">
     <div class="footer-bottom__top">
-      <p>
-        © {year} GWE NGO India<br />
-        All Rights Reserved.<br />
-        NITI AAYOG Unique Id: AP/2013/0068072
+      <p class="footer-copyright">
+        © 2026 GWE NGO India &nbsp;·&nbsp; All Rights Reserved. &nbsp;·&nbsp; NITI AAYOG Unique Id: AP/2013/0068072
       </p>
     </div>
     <ul class="footer-bottom__menu">
@@ -74,7 +70,7 @@ const year = new Date().getFullYear();
   }
 
   .site-footer h3 {
-    color: #fff;
+    color: var(--color-primary-600);
     font-size: 1rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
@@ -120,6 +116,10 @@ const year = new Date().getFullYear();
     margin: 0 0 var(--space-2);
     font-size: 0.85rem;
     color: #a3a3a3;
+  }
+
+  .footer-copyright {
+    color: #fff !important;
   }
 
   .footer-bottom__menu {

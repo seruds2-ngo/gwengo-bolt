@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import RazorpayDonate from '../components/RazorpayDonate.astro';
 import { IMAGES } from '../data/site';
 
 const values = [
@@ -42,6 +43,12 @@ const causes = [
     img: IMAGES.eldersHome,
     href: '/elders',
   },
+  {
+    title: 'Women Empowerment',
+    text: 'GWE NGO India believes that every woman should be capable enough to earn her own livelihood. GWE NGO India provides vocational training to women so as to help them learn a skill and be independent.',
+    img: IMAGES.women,
+    href: '/women/women-empowerment',
+  },
 ];
 
 const testimonials = [
@@ -79,7 +86,7 @@ const testimonials = [
             organization by name "Glorious Women Empowerment".
           </p>
           <div class="hero__actions">
-            <a class="btn btn--secondary" href="/donate">Donate Now</a>
+            <RazorpayDonate />
             <a class="btn btn--ghost" href="/about-us/our-work">Read More</a>
           </div>
         </div>
@@ -130,7 +137,6 @@ const testimonials = [
     <section class="section">
       <div class="container">
         <p class="eyebrow">Our Values</p>
-        <h2>What makes us different?</h2>
         <div class="grid values-grid">
           {
             values.map((v) => (
@@ -146,9 +152,8 @@ const testimonials = [
 
     <section class="section section--alt">
       <div class="container">
-        <p class="eyebrow">Support for Women</p>
-        <h2>Support for Women</h2>
-        <div class="grid causes-grid">
+        <h2>What makes us different?</h2>
+        <div class="grid causes-grid causes-grid--2x2">
           {
             causes.map((c) => (
               <a href={c.href} class="card cause-card">
@@ -188,7 +193,7 @@ const testimonials = [
     <section class="cta-band">
       <div class="container cta-band__inner">
         <h2>Be the change — support women, children and elders today.</h2>
-        <a class="btn btn--secondary" href="/donate">Donate Now</a>
+        <RazorpayDonate />
       </div>
     </section>
   </main>
@@ -296,8 +301,8 @@ const testimonials = [
   }
 
   .hero__lead {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.92);
+    font-size: calc(1.15rem + 1px);
+    color: #fff;
     max-width: 540px;
   }
 
@@ -343,8 +348,19 @@ const testimonials = [
     color: var(--color-primary-700);
   }
 
-  .causes-grid {
+  .causes-grid--2x2 {
+    grid-template-columns: repeat(2, 1fr);
     margin-top: var(--space-3);
+  }
+
+  .cause-card h3 {
+    color: var(--color-primary-700);
+  }
+
+  @media (max-width: 760px) {
+    .causes-grid--2x2 {
+      grid-template-columns: 1fr;
+    }
   }
 
   .cause-card {

@@ -23,15 +23,6 @@ export const NAV = [
     ],
   },
   {
-    label: 'Women',
-    href: '/women',
-    children: [
-      { label: 'Support for Women', href: '/women' },
-      { label: 'Women Empowerment', href: '/women/women-empowerment' },
-      { label: 'Health Education', href: '/women/health-education' },
-    ],
-  },
-  {
     label: 'Children',
     href: '/children',
     children: [
@@ -51,6 +42,15 @@ export const NAV = [
       { label: 'Nutritious Diet', href: '/elders/nutritious-diet' },
       { label: 'Groceries Support', href: '/elders/groceries-support' },
       { label: 'Distribution of Blankets', href: '/elders/distribution-of-blankets' },
+    ],
+  },
+  {
+    label: 'Women',
+    href: '/women',
+    children: [
+      { label: 'Support for Women', href: '/women' },
+      { label: 'Women Empowerment', href: '/women/women-empowerment' },
+      { label: 'Health Education', href: '/women/health-education' },
     ],
   },
   { label: 'Contact Us', href: '/contact-us' },
