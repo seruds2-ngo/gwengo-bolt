@@ -57,11 +57,12 @@ import Footer from '../components/Footer.astro';
           </div>
         </div>
 
-        <form
-          class="contact-form"
-          onsubmit="event.preventDefault(); this.reset(); alert('Thank you for reaching out! We will get back to you soon.');"
-        >
+        <form class="contact-form" id="contact-form" data-web3forms="YOUR_ACCESS_KEY">
           <h3>Drop Us a Line</h3>
+          <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY" />
+          <input type="hidden" name="subject" value="New contact form submission — GWE NGO website" />
+          <input type="hidden" name="from_name" value="GWE NGO Website" />
+          <input type="checkbox" name="botcheck" class="hidden" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
           <div class="form-row">
             <div class="form-field">
               <label for="cf-first">Name <span aria-hidden="true">*</span></label>
@@ -82,7 +83,8 @@ import Footer from '../components/Footer.astro';
             <label for="cf-message">Comment or Message</label>
             <textarea id="cf-message" name="message" rows="6"></textarea>
           </div>
-          <button class="btn btn--primary" type="submit">Submit</button>
+          <button class="btn btn--primary" type="submit" id="contact-submit">Submit</button>
+          <p id="contact-status" class="contact-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -183,9 +185,70 @@ import Footer from '../components/Footer.astro';
     clip: rect(0 0 0 0);
   }
 
+  .contact-status {
+    margin-top: var(--space-2);
+    font-size: 0.95rem;
+    min-height: 1.2em;
+  }
+
+  .contact-status--success {
+    color: var(--color-success-600, #15803d);
+  }
+
+  .contact-status--error {
+    color: var(--color-error-600, #b91c1c);
+  }
+
   @media (max-width: 900px) {
     .contact-grid {
       grid-template-columns: 1fr;
     }
   }
 </style>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+  const status = document.getElementById('contact-status') as HTMLParagraphElement | null;
+  const submitBtn = document.getElementById('contact-submit') as HTMLButtonElement | null;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!status || !submitBtn) return;
+
+    status.textContent = '';
+    status.className = 'contact-status';
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json();
+
+      if (result.success) {
+        status.textContent = 'Thank you for reaching out! We will get back to you soon.';
+        status.classList.add('contact-status--success');
+        form.reset();
+      } else {
+        status.textContent = 'Sorry, something went wrong. Please try again or email us directly.';
+        status.classList.add('contact-status--error');
+      }
+    } catch {
+      status.textContent = 'Sorry, something went wrong. Please try again or email us directly.';
+      status.classList.add('contact-status--error');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Submit';
+    }
+  });
+</script>
