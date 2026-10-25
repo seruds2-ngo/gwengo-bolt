@@ -45,12 +45,17 @@ import { IMAGES } from '../data/site';
         © 2026 GWE NGO India &nbsp;·&nbsp; All Rights Reserved. &nbsp;·&nbsp; NITI AAYOG Unique Id: AP/2013/0068072
       </p>
     </div>
-    <ul class="footer-bottom__menu">
-      <li><a href="/privacy-policy">Privacy Policy</a></li>
-      <li><a href="/refund-cancellation-policy">Refund &amp; Cancellation Policy</a></li>
-      <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
-      <li><a href="/disclaimer">Disclaimer</a></li>
-    </ul>
+    <div class="footer-bottom__row">
+      <ul class="footer-bottom__menu">
+        <li><a href="/privacy-policy">Privacy Policy</a></li>
+        <li><a href="/refund-cancellation-policy">Refund &amp; Cancellation Policy</a></li>
+        <li><a href="/terms-conditions">Terms &amp; Conditions</a></li>
+        <li><a href="/disclaimer">Disclaimer</a></li>
+      </ul>
+      <p class="footer-bottom__credit">
+        By <a href="https://www.ananyaseo.com/" target="_blank" rel="noopener">Ananya SEO Services</a>
+      </p>
+    </div>
   </div>
 </footer>
 
@@ -120,6 +125,32 @@ import { IMAGES } from '../data/site';
 
   .footer-copyright {
     color: #fff !important;
+  }
+
+  .footer-bottom__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer-bottom__credit {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #a3a3a3;
+    white-space: nowrap;
+  }
+
+  .footer-bottom__credit a {
+    color: var(--color-primary-600);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-bottom__credit a:hover {
+    color: #fff;
+    text-decoration: underline;
   }
 
   .footer-bottom__menu {
