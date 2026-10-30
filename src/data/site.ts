@@ -61,16 +61,24 @@ export const IMAGES = {
   logo: '/images/gwengoindia_logo1-1.webp',
   qr: '/images/QRCode-gwe122.webp',
   heroSlide1: '/images/gwen-community-hero.jpg',
-  heroSlide2: 'https://gwengoindia.org/wp-content/uploads/2023/06/DSC09990.jpg',
+  heroSlide2:
+    'https://images.pexels.com/photos/15675903/pexels-photo-15675903.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   heroHands:
-    'https://gwengoindia.org/wp-content/uploads/2023/06/people-stacking-hands-together-park-scaled.jpg',
-  about: 'https://gwengoindia.org/wp-content/uploads/2023/05/About1.webp',
-  aboutCore: 'https://gwengoindia.org/wp-content/uploads/2021/05/About_core_05.jpg',
+    'https://images.pexels.com/photos/5029919/pexels-photo-5029919.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  about:
+    'https://images.pexels.com/photos/33808945/pexels-photo-33808945.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  aboutCore:
+    'https://images.pexels.com/photos/28382914/pexels-photo-28382914.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   eldersHome:
-    'https://gwengoindia.org/wp-content/uploads/2023/05/old-young-man-holding-hands-close-up-scaled.jpg',
-  elders: 'https://gwengoindia.org/wp-content/uploads/2023/05/elders.webp',
-  kids: 'https://gwengoindia.org/wp-content/uploads/2023/05/Home_kids.jpg',
-  children: 'https://gwengoindia.org/wp-content/uploads/2023/05/children.webp',
-  woman: 'https://gwengoindia.org/wp-content/uploads/2023/05/Home_woman.jpg',
-  women: 'https://gwengoindia.org/wp-content/uploads/2023/05/women.webp',
+    'https://images.pexels.com/photos/6646815/pexels-photo-6646815.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  elders:
+    'https://images.pexels.com/photos/30075634/pexels-photo-30075634.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  kids:
+    'https://images.pexels.com/photos/20556421/pexels-photo-20556421.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  children:
+    'https://images.pexels.com/photos/15119089/pexels-photo-15119089.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  woman:
+    'https://images.pexels.com/photos/8527070/pexels-photo-8527070.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+  women:
+    'https://images.pexels.com/photos/11359621/pexels-photo-11359621.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
 };
